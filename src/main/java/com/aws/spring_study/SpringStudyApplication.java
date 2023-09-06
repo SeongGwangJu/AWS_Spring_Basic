@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class SpringStudyApplication {
-
+//Git Test!
 	public static void main(String[] args) {
 		SpringApplication.run(SpringStudyApplication.class, args);
 	}
