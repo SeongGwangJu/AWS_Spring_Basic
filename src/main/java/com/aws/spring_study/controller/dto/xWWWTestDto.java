@@ -1,4 +1,4 @@
-package com.aws.spring_study.controller.dto;
+package com.aws.spring_study.controller;
 
 import lombok.Data;
 
