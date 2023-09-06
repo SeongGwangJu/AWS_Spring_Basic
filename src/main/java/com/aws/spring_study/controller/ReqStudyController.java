@@ -8,6 +8,7 @@ import java.util.Map;
 @RestController
 public class ReqStudyController {
 
+    @PostMapping("/test/post")
     @GetMapping("/test/get")
     public Object get() {
         Map<String, String> dataMap = new HashMap<>();
@@ -16,7 +17,6 @@ public class ReqStudyController {
         return dataMap;
     }
 
-    @PostMapping("/test/post")
     public Object post() {
         return  null;
     }
