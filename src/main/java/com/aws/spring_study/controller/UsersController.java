@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController //Post요청 처리
 public class UsersController {
 
 	@Autowired
@@ -17,6 +17,7 @@ public class UsersController {
 
 	@CrossOrigin
 	@PostMapping("/user")
+
 	public ResponseEntity<?> registerUser(@RequestBody RegisterUserReqDto registerUserReqDto) {
 
 		Integer count = userMappers.saveUser(registerUserReqDto);
