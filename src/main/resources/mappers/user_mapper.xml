@@ -8,4 +8,5 @@
         insert into user_tb
         values (0, #{username}, #{name}, #{phone})
     </insert>
+
 </mapper>
