@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 		public class ViewsController {
-
-			@ResponseBody //데이터를 바로 응답 : SSR이 일어남.
+			//데이터를 http로 바로 응답 : SSR이 일어남.
+			@ResponseBody
 			@GetMapping("/student/register")
 			public String studentRegister(Model model) {
 				model.addAttribute("title", "학생 등록");
