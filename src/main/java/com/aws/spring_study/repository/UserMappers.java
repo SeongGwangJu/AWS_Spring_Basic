@@ -5,6 +5,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface UserMappers {
-	public Integer saveUser(RegisterUserReqDto registerUserReqDto);
+	public int saveUser(RegisterUserReqDto registerUserReqDto);
 
 }
