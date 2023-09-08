@@ -1,5 +1,6 @@
 package com.aws.spring_study.controller;
 
+import com.aws.spring_study.controller.dto.ModifyUserReqDto;
 import com.aws.spring_study.controller.dto.RegisterUserReqDto;
 import com.aws.spring_study.entity.User;
 import com.aws.spring_study.repository.UserMappers;
@@ -23,7 +24,6 @@ public class UsersController {
 	public ResponseEntity<Integer> registerUser(@RequestBody RegisterUserReqDto registerUserReqDto) {
 
 		Integer count = userMappers.saveUser(registerUserReqDto);
-
 		return ResponseEntity.ok().body(count);
 	}
 
@@ -33,9 +33,21 @@ public class UsersController {
 		return ResponseEntity.ok().body(userMappers.getUserListAll());
 	}
 
+	@CrossOrigin
 	@PutMapping("/users/{userId}")
-	public ResponseEntity<Integer> modifyUser(@PathVariable int userId) {
-		System.out.println(userId);
+	public ResponseEntity<Integer> modifyUser(
+	@PathVariable int userId,
+	@RequestBody ModifyUserReqDto modifyUserReqDto) {
+
+		userMappers.updateUser(modifyUserReqDto);
+		return ResponseEntity.ok().body(null);
+	}
+
+	@CrossOrigin
+	@DeleteMapping("/users/{userId}")
+	public ResponseEntity<Integer> deleteUser(@PathVariable int userId) {
+
+		userMappers.deleteUser(userId);
 		return ResponseEntity.ok().body(null);
 	}
 }

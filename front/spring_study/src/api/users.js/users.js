@@ -10,5 +10,9 @@ export const getUserListALl = async () => {
 }
 
 export const updateUser = async (user) => {
-    return api.put(`/users/${user.userId}`)
+    return api.put(`/users/${user.userId}`, user)
+}
+
+export const deleteUser = async (user) => {
+    return api.delete(`/users/${user.userId}`)
 }

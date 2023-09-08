@@ -19,4 +19,22 @@
             user_tb
     </select>
 
+    <update id="updateUser" parameterType="com.aws.spring_study.controller.dto.ModifyUserReqDto">
+        update
+            user_tb
+        set
+            username = #{username},
+            name = #{name},
+            phone = #{phone}
+        where
+            user_id = #{userId};
+    </update>
+
+    <delete id="deleteUser" parameterType="int">
+        delete from
+            user_tb
+        where
+            user_id = #{userId};
+    </delete>
+
 </mapper>
