@@ -9,4 +9,14 @@
         values (0, #{username}, #{name}, #{phone})
     </insert>
 
+    <select id="getUserListAll" resultType="com.aws.spring_study.entity.User">
+        select
+            user_id as userId,
+            username,
+            name,
+            phone
+        from
+            user_tb
+    </select>
+
 </mapper>

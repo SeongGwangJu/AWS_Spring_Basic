@@ -1,27 +1,41 @@
 package com.aws.spring_study.controller;
 
 import com.aws.spring_study.controller.dto.RegisterUserReqDto;
+import com.aws.spring_study.entity.User;
 import com.aws.spring_study.repository.UserMappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController //Post요청 처리
 public class UsersController {
 
-	@Autowired
+
+	@Autowired //autoWired를 통해 AutoIncrement 구현함.
 	private UserMappers userMappers;
 
 	@CrossOrigin
 	@PostMapping("/user")
 
-	public ResponseEntity<?> registerUser(@RequestBody RegisterUserReqDto registerUserReqDto) {
+//	DataTransferObject(Dto) :데이터 변환 객체
+	public ResponseEntity<Integer> registerUser(@RequestBody RegisterUserReqDto registerUserReqDto) {
 
 		Integer count = userMappers.saveUser(registerUserReqDto);
 
+		return ResponseEntity.ok().body(count);
+	}
+
+	@CrossOrigin
+	@GetMapping("/user/list")
+	public ResponseEntity<List<User>> userListAll() {
+		return ResponseEntity.ok().body(userMappers.getUserListAll());
+	}
+
+	@PutMapping("/users/{userId}")
+	public ResponseEntity<Integer> modifyUser(@PathVariable int userId) {
+		System.out.println(userId);
 		return ResponseEntity.ok().body(null);
 	}
 }
