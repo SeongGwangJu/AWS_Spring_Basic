@@ -11,7 +11,7 @@ public class SpringStudyApplication {
 //Git Test!
 	public static void main(String[] args) {
 		SpringApplication.run(SpringStudyApplication.class, args);
-		main2();
+//		main2();
 	}
 
 	public static void main2() {
